@@ -20,9 +20,8 @@ const userRoutes = require('./routes/users.js')
 const session = require('express-session')
 
 const MongoStore = require('connect-mongo');
-// const dbUrl = process.env.DB_URL;
-const dbUrl = 'mongodb://localhost:27017/yelpCamp'
-// 'mongodb://localhost:27017/yelpCamp'
+const dbUrl = process.env.DB_URL;
+// const dbUrl = 'mongodb://localhost:27017/yelpCamp'
 mongoose.connect(dbUrl)
     .then(() => { console.log("connected"); })
     .catch(err => {
@@ -37,7 +36,7 @@ const scriptSrcUrls = [
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
-    "https://cdn.maptiler.com/", // add this
+    "https://cdn.maptiler.com/",
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
@@ -45,10 +44,10 @@ const styleSrcUrls = [
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
     "https://cdn.jsdelivr.net",
-    "https://cdn.maptiler.com/", // add this
+    "https://cdn.maptiler.com/",
 ];
 const connectSrcUrls = [
-    "https://api.maptiler.com/", // add this
+    "https://api.maptiler.com/",
 ];
 const fontSrcUrls = [];
 
@@ -107,7 +106,7 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        // secure: true,
+        secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
     }
