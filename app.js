@@ -103,7 +103,7 @@ const sessionConfig = {
     name: "session",
     secret: process.env.SECRET,
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
