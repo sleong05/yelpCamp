@@ -44,9 +44,10 @@
                     </ul>
                     <% if (currentUser && campground.author.equals(currentUser._id)) {%>
 
-                        <a href=" /campgrounds/<%=campground._id%>/edit" class="btn btn-info">Edit</a>
+                        <a href=" /historicalsites/<%=campground._id%>/edit" class="btn btn-info">Edit</a>
 
-                        <form class="d-inline" action="/campgrounds/<%=campground._id %>?_method=DELETE" method="POST">
+                        <form class="d-inline" action="/historicalsites/<%=campground._id %>?_method=DELETE"
+                            method="POST">
                             <button class="btn btn-danger">Delete</button>
                         </form>
                         <% } %>
@@ -70,7 +71,7 @@
                         Review: <%= review.body %>
                     </p>
                     <% if (currentUser && currentUser.equals(review.author)) {%>
-                        <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
+                        <form action="/historicalsites/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE"
                             method="POST">
                             <button class="btn btn-sm btn-danger">Delete</button>
                         </form>
@@ -82,7 +83,8 @@
 
                 <% if (currentUser){ %>
                     <h2>Leave a Review</h2>
-                    <form action="/campgrounds/<%=campground._id  %>/reviews" method="POST" class="mb-3 validated-form"" novalidate>
+                    <form action="/historicalsites/<%=campground._id  %>/reviews" method="POST"
+                        class="mb-3 validated-form"" novalidate>
 <div class=" mb-3">
                         <fieldset class=" starability-basic">
                             <legend>First rating:</legend>

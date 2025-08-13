@@ -138,8 +138,8 @@ app.get("/home", (req, res) => {
     res.render('home.ejs')
 })
 app.use('/', userRoutes)
-app.use("/campgrounds", campgroundRoutes);
-app.use("/campgrounds/:id/reviews", reviewRoutes);
+app.use("/historicalsites", campgroundRoutes);
+app.use("/historicalsites/:id/reviews", reviewRoutes);
 
 app.all(/(.*)/, (req, res, next) => {
     next(new ExpressError('Page Not Found', 404));

@@ -25,7 +25,7 @@ module.exports.isAuthor = async (req, res, next) => {
     const campground = await Campground.findById(id);
     if (campground.author && !campground.author.equals(req.user._id)) {
         req.flash("error", "You do not have permission to do this.")
-        return res.redirect(`/campgrounds/${id}`)
+        return res.redirect(`/historicalsites/${id}`)
     }
     next();
 }
@@ -35,7 +35,7 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     const review = await Review.findById(reviewId);
     if (!review.author.equals(req.user._id)) {
         req.flash("error", "You do not have permission to delete this.")
-        return res.redirect(`/campgrounds/${id}`)
+        return res.redirect(`/historicalsites/${id}`)
     }
     next();
 }
@@ -47,9 +47,9 @@ module.exports.validateCampground = (req, res, next) => {
         req.flash("error", msg);
         try {
             const { id } = req.params;
-            res.redirect(`/campgrounds/${id}/edit`)
+            res.redirect(`/historicalsites/${id}/edit`)
         } catch (err) {
-            res.redirect('/campgrounds/new')
+            res.redirect('/historicalsites/new')
         }
     } else { next(); }
 }
