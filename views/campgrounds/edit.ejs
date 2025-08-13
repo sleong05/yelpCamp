@@ -1,8 +1,8 @@
 <% layout('/layout/boilerplate') %>
 
     <div class="row">
-        <h1 class="text-center">Edit Campground</h1>
-         <div class="col-md-6 offset-md-3">
+        <h1 class="text-center">Edit Historical Site</h1>
+        <div class="col-md-6 offset-md-3">
             <form action="/campgrounds/<%= campground._id %>/?_method=PATCH" method="POST" novalidate
                 class="validated-form" enctype="multipart/form-data">
                 <div class="mb-3">
@@ -17,18 +17,10 @@
                         value="<%=campground.location %>" required>
                     <div class="valid-feedback">Looks good!</div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label" for="price">Campground Price</label>
-                    <div class="input-group">
-                        <span class="input-group-text">$</span>
-                        <input type="text" class="form-control" id="price" name="campground[price]" placeholder="0.00"
-                            value="<%=campground.price %>" aria-describedby="price-label" required>
-                        <div class="valid-feedback">Looks good!</div>
-                    </div>
-                </div>
+                <input type="hidden" name="campground[price]" value="0">
                 <div class=" mb-3">
                     <label for="formFile" class="form-label">Add images</label>
-  <input class="form-control" type="file" name="image" id="" multiple>
+                    <input class="form-control" type="file" name="image" id="" multiple>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="description">Description</label>
@@ -38,23 +30,24 @@
                 </div>
 
                 <div class="mb-3">
-  <div class="d-flex flex-wrap gap-3">
-    <% campground.images.forEach(function(img, i) { %>
-      <div class="text-center">
-        <img src="<%= img.thumbnail %>" class="img-thumbnail mb-2" alt="Image <%= i + 1 %>" style="width: 150px; height: 150px; object-fit: cover;">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" name="deleteImages[]" value="<%= img.filename %>" id="image-<%= i %>">
-          <label class="form-check-label" for="image-<%= i %>">Delete</label>
-        </div>
-      </div>
-    <% }) %>
-  </div>
-</div>
+                    <div class="d-flex flex-wrap gap-3">
+                        <% campground.images.forEach(function(img, i) { %>
+                            <div class="text-center">
+                                <img src="<%= img.thumbnail %>" class="img-thumbnail mb-2" alt="Image <%= i + 1 %>"
+                                    style="width: 150px; height: 150px; object-fit: cover;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="deleteImages[]"
+                                        value="<%= img.filename %>" id="image-<%= i %>">
+                                    <label class="form-check-label" for="image-<%= i %>">Delete</label>
+                                </div>
+                            </div>
+                            <% }) %>
+                    </div>
+                </div>
 
                 <div class="mb-3">
                     <button class="btn btn-success">Save Changes</button>
                 </div>
             </form>
-            <footer><a href="/campgrounds">All Campgrounds</a></footer>
         </div>
     </div>

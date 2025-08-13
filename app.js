@@ -80,6 +80,8 @@ app.use(
                 "https://res.cloudinary.com/dqsojznwk/",
                 "https://images.unsplash.com/",
                 "https://api.maptiler.com/",
+                "https://www.nps.gov/",
+                "https://*.nps.gov/",
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },

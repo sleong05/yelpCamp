@@ -1,23 +1,24 @@
 <% layout('/layout/boilerplate') %>
 
- <script>
-    const maptilerApiKey = '<%- process.env.MAPTILER_API_KEY %>';
-     const campgrounds = { features: <%- JSON.stringify(campgrounds) %>};
-</script>
+    <script>
+        const maptilerApiKey = '<%- process.env.MAPTILER_API_KEY %>';
+        const campgrounds = { features: <% - JSON.stringify(campgrounds) %>};
+    </script>
 
-   
 
-<div id="clusterMap" class="mb-3 rounded-3" ></div>
- <h1> All Campgrounds</h1>
+
+    <div id="clusterMap" class="mb-3 rounded-3"></div>
+    <h1> All Historical Sites</h1>
     <% for (let campground of campgrounds ) { %>
         <div class="card mb-3" mb-3>
             <div class="row">
                 <div class="col-md-4">
                     <% if (campground.images.length) {%>
-                    <img crossorigin="anonymous" class="img-fluid" alt="" src="<%= campground.images[0].url %>">
-                    <% } else {%>
-                        <img crossorigin="anonymous" class="img-fluid" alt="" src="https://res.cloudinary.com/dqsojznwk/image/upload/v1750037900/YelpCamp/u7xrjdlewkgd3wbfkexz.png">
-                        <% } %>
+                        <img crossorigin="anonymous" class="img-fluid" alt="" src="<%= campground.images[0].url %>">
+                        <% } else {%>
+                            <img crossorigin="anonymous" class="img-fluid" alt=""
+                                src="https://res.cloudinary.com/dqsojznwk/image/upload/v1750037900/YelpCamp/u7xrjdlewkgd3wbfkexz.png">
+                            <% } %>
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
@@ -42,4 +43,4 @@
 
 
         <% } %>
-        <script src="/javascripts/clusterMap.js"></script>
+            <script src="/javascripts/clusterMap.js"></script>
